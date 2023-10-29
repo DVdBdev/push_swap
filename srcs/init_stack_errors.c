@@ -6,11 +6,11 @@
 /*   By: dvan-den <dvan-den@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 19:04:09 by dvan-den          #+#    #+#             */
-/*   Updated: 2023/10/29 19:19:05 by dvan-den         ###   ########.fr       */
+/*   Updated: 2023/10/29 22:05:31 by dvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../inc/push_swap.h"
 
 int	is_valid_integer(const char *str)
 {
