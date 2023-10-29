@@ -6,7 +6,7 @@
 /*   By: dvan-den <dvan-den@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 20:37:21 by dvan-den          #+#    #+#             */
-/*   Updated: 2023/10/29 20:40:18 by dvan-den         ###   ########.fr       */
+/*   Updated: 2023/10/29 22:00:14 by dvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,12 +62,12 @@ void	display_stack(const t_stack_node *stack)
 int	main(int argc, char **argv)
 {
 	t_stack_node	*a;
-	t_stack_node	*b;
+	//t_stack_node	*b;
 	char			*input_str;
 	char			**splitted_str;
 
 	a = NULL;
-	b = NULL;
+	//b = NULL;
 	if (argc <= 1)
 	{
 		printf("Error: no input data\n");
