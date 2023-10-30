@@ -39,5 +39,8 @@ void			init_stack_from_str(t_stack_node **stack, char **splitted_str);
 void			free_string_array(char **str_array);
 void			pa(t_stack_node **a, t_stack_node **b);
 void			pb(t_stack_node **b, t_stack_node **a);
+void			sa(t_stack_node **a);
+void			sb(t_stack_node **b);
+void			ss(t_stack_node **a, t_stack_node **b);
 
 #endif
