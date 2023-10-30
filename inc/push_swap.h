@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dvan-den <dvan-den@student.s19.be>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/10/29 22:06:41 by dvan-den          #+#    #+#             */
+/*   Updated: 2023/10/29 22:06:41 by dvan-den         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
@@ -25,5 +37,7 @@ void			handle_error_and_exit(t_stack_node **stack, const char *message);
 int				append_node(t_stack_node **stack, int n);
 void			init_stack_from_str(t_stack_node **stack, char **splitted_str);
 void			free_string_array(char **str_array);
+void			pa(t_stack_node **a, t_stack_node **b);
+void			pb(t_stack_node **b, t_stack_node **a);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: dvan-den <dvan-den@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 20:37:21 by dvan-den          #+#    #+#             */
-/*   Updated: 2023/10/29 22:05:15 by dvan-den         ###   ########.fr       */
+/*   Updated: 2023/10/30 06:51:56 by dvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,15 +59,33 @@ void	display_stack(const t_stack_node *stack)
 	printf("\n");
 }
 
+void	display_stacks(const t_stack_node *a, const t_stack_node *b)
+{
+	printf("a: ");
+	while (a)
+	{
+		printf("%d ", a->value);
+		a = a->next;
+	}
+	printf("\n");
+	printf("b: ");
+	while (b)
+	{
+		printf("%d ", b->value);
+		b = b->next;
+	}
+	printf("\n");
+}
+
 int	main(int argc, char **argv)
 {
 	t_stack_node	*a;
-	//t_stack_node	*b;
+	t_stack_node	*b;
 	char			*input_str;
 	char			**splitted_str;
 
 	a = NULL;
-	//b = NULL;
+	b = NULL;
 	if (argc <= 1)
 	{
 		printf("Error: no input data\n");
@@ -84,7 +102,9 @@ int	main(int argc, char **argv)
 		splitted_str = ft_split(input_str, ' ');
 		free(input_str);
 		init_stack_from_str(&a, splitted_str);
-		display_stack(a);
+		display_stacks(a, b);
+		pb(&b, &a);
+		display_stacks(a, b);
 		free_stack(&a);
 	}
 }
