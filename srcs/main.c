@@ -6,7 +6,7 @@
 /*   By: dvan-den <dvan-den@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 20:37:21 by dvan-den          #+#    #+#             */
-/*   Updated: 2023/10/30 07:39:31 by dvan-den         ###   ########.fr       */
+/*   Updated: 2023/10/30 20:20:46 by dvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,6 +110,12 @@ int	main(int argc, char **argv)
 		rr(&a, &b);
 		display_stacks(a, b);
 		rr(&a, &b);
+		display_stacks(a, b);
+		rrr(&a, &b);
+		display_stacks(a, b);
+		rrr(&a, &b);
+		display_stacks(a, b);
+		rrr(&a, &b);
 		display_stacks(a, b);
 		free_stack(&a);
 	}

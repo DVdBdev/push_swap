@@ -45,5 +45,8 @@ void			ss(t_stack_node **a, t_stack_node **b);
 void			ra(t_stack_node **a);
 void			rb(t_stack_node **b);
 void			rr(t_stack_node **a, t_stack_node **b);
+void			rra(t_stack_node **a);
+void			rrb(t_stack_node **b);
+void			rrr(t_stack_node **a, t_stack_node **b);
 
 #endif
