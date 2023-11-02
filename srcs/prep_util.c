@@ -6,7 +6,7 @@
 /*   By: dvan-den <dvan-den@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 09:42:45 by dvan-den          #+#    #+#             */
-/*   Updated: 2023/11/02 09:42:45 by dvan-den         ###   ########.fr       */
+/*   Updated: 2023/11/02 11:07:08 by dvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 
 t_stack_node	*find_max(t_stack_node *stack)
 {
-    int				max;
-    t_stack_node	*max_node;
+	int				max;
+	t_stack_node	*max_node;
+
 	if (!stack)
 		return (NULL);
 	max = INT_MIN;
@@ -33,8 +34,9 @@ t_stack_node	*find_max(t_stack_node *stack)
 
 t_stack_node	*find_min(t_stack_node *stack)
 {
-    int				min;
-    t_stack_node	*min_node;
+	int				min;
+	t_stack_node	*min_node;
+
 	if (!stack)
 		return (NULL);
 	min = INT_MAX;

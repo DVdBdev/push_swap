@@ -6,7 +6,7 @@
 /*   By: dvan-den <dvan-den@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 20:37:21 by dvan-den          #+#    #+#             */
-/*   Updated: 2023/10/30 20:20:46 by dvan-den         ###   ########.fr       */
+/*   Updated: 2023/11/02 11:50:43 by dvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	free_string_array(char **str_array)
 	free(str_array);
 }
 
-void	display_stack(const t_stack_node *stack)
+void	display_stack(t_stack_node *stack)
 {
 	printf("Stack contents: ");
 	while (stack)
@@ -102,21 +102,17 @@ int	main(int argc, char **argv)
 		splitted_str = ft_split(input_str, ' ');
 		free(input_str);
 		init_stack_from_str(&a, splitted_str);
-		display_stacks(a, b);
-		rr(&a, &b);
-		display_stacks(a, b);
-		rr(&a, &b);
-		display_stacks(a, b);
-		rr(&a, &b);
-		display_stacks(a, b);
-		rr(&a, &b);
-		display_stacks(a, b);
-		rrr(&a, &b);
-		display_stacks(a, b);
-		rrr(&a, &b);
-		display_stacks(a, b);
-		rrr(&a, &b);
-		display_stacks(a, b);
-		free_stack(&a);
+		if (!stack_sorted(a))
+		{
+			if (stack_len(a) == 2)
+				sa(&a);
+			else if (stack_len(a) == 3)
+				sort_small(&a);
+			else
+				sort_stacks(&a, &b);
+		}
 	}
+	display_stacks(a, b);
+	free_stack(&a);
+	return (0);
 }

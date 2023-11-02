@@ -6,13 +6,13 @@
 /*   By: dvan-den <dvan-den@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 19:08:34 by dvan-den          #+#    #+#             */
-/*   Updated: 2023/10/29 22:05:23 by dvan-den         ###   ########.fr       */
+/*   Updated: 2023/11/02 11:29:10 by dvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-void	ft_strcat(char *s1, const char *s2)
+static void	ft_strcat(char *s1, const char *s2)
 {
 	while (*s1 != '\0')
 	{

@@ -6,13 +6,13 @@
 /*   By: dvan-den <dvan-den@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 19:03:12 by dvan-den          #+#    #+#             */
-/*   Updated: 2023/10/29 19:03:12 by dvan-den         ###   ########.fr       */
+/*   Updated: 2023/11/02 11:31:29 by dvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-int	append_node(t_stack_node **stack, int n)
+static int	append_node(t_stack_node **stack, int n)
 {
 	t_stack_node	*new_node;
 	t_stack_node	*last_node;
