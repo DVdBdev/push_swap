@@ -55,5 +55,12 @@ void			rrb(t_stack_node **b);
 void			rrr(t_stack_node **a, t_stack_node **b);
 t_stack_node	*find_max(t_stack_node *stack);
 int				stack_len(t_stack_node *stack);
+t_stack_node	*find_min(t_stack_node *stack);
+void			current_index(t_stack_node *stack);
+t_stack_node	*get_cheapest(t_stack_node *stack);
+void			rotate_both(t_stack_node **a, t_stack_node **b, t_stack_node *cheapest);
+void			rev_rotate_both(t_stack_node **a, t_stack_node **b, t_stack_node *cheapest);
+void			prep_a(t_stack_node **a, t_stack_node *top);
+void			prep_b(t_stack_node **b, t_stack_node *top);
 
 #endif

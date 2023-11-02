@@ -109,7 +109,7 @@ void    set_cheapest(t_stack_node *stack)
 	cheapest_node->cheapest = true;
 }
 
-void    prep_stack_a(t_stack_node *a, t_stack_node *b)
+void    prep_stack_a(t_stack_node *a, t_stack_node *b, t_stack_node cheapest_node)
 {
     current_index(a);
     current_index(b);
