@@ -53,5 +53,7 @@ void			rr(t_stack_node **a, t_stack_node **b);
 void			rra(t_stack_node **a);
 void			rrb(t_stack_node **b);
 void			rrr(t_stack_node **a, t_stack_node **b);
+t_stack_node	*find_max(t_stack_node *stack);
+int				stack_len(t_stack_node *stack);
 
 #endif
