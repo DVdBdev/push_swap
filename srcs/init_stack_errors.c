@@ -6,7 +6,7 @@
 /*   By: dvan-den <dvan-den@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 19:04:09 by dvan-den          #+#    #+#             */
-/*   Updated: 2024/01/22 10:41:38 by dvan-den         ###   ########.fr       */
+/*   Updated: 2024/01/22 11:33:34 by dvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,6 @@ void	free_stack(t_stack_node **stack)
 void	handle_error_and_exit(t_stack_node **stack, const char *message)
 {
 	free_stack(stack);
-	ft_printf("Error: %s\n", message);
+	ft_printf("Error\n", message);
 	exit(1);
 }
