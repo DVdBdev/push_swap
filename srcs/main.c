@@ -29,15 +29,14 @@ void	free_string_array(char **str_array)
 	free(str_array);
 }
 
-void	display_stack(t_stack_node *stack)
+void	main_help(t_stack_node *a, t_stack_node *b)
 {
-	printf("Stack contents: ");
-	while (stack)
-	{
-		printf("%d ", stack->value);
-		stack = stack->next;
-	}
-	printf("\n");
+	if (stack_len(a) == 2)
+		sa(&a);
+	else if (stack_len(a) == 3)
+		sort_small(&a);
+	else
+		sort_stacks(&a, &b);
 }
 
 int	main(int argc, char **argv)
@@ -56,21 +55,14 @@ int	main(int argc, char **argv)
 		input_str = argv_to_string(argv);
 		if (!input_str)
 		{
-			ft_printf("Error: argv_to_string failed\n");
+			ft_printf("Error\n");
 			return (0);
 		}
 		splitted_str = ft_split(input_str, ' ');
 		free(input_str);
 		init_stack_from_str(&a, splitted_str);
 		if (!stack_sorted(a))
-		{
-			if (stack_len(a) == 2)
-				sa(&a);
-			else if (stack_len(a) == 3)
-				sort_small(&a);
-			else
-				sort_stacks(&a, &b);
-		}
+			main_help(a, b);
 	}
 	free_stack(&a);
 	return (0);

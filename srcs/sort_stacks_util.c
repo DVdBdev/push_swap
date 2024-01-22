@@ -6,7 +6,7 @@
 /*   By: dvan-den <dvan-den@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 10:10:28 by dvan-den          #+#    #+#             */
-/*   Updated: 2024/01/22 12:25:57 by dvan-den         ###   ########.fr       */
+/*   Updated: 2024/01/22 12:40:02 by dvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ bool	stack_sorted(t_stack_node *stack)
  * @param b A pointer to the head of stack B.
  * @param cheapest A pointer to the node marked as the cheapest.
  */
-void	rotate_both(t_stack_node **a, t_stack_node **b, t_stack_node *cheapest)
+void	r_both(t_stack_node **a, t_stack_node **b, t_stack_node *cheapest)
 {
 	while (*b != cheapest->target && *a != cheapest)
 		rr(a, b);
@@ -92,7 +92,7 @@ void	rotate_both(t_stack_node **a, t_stack_node **b, t_stack_node *cheapest)
  * @param b A pointer to the head of stack B.
  * @param cheapest A pointer to the node marked as the cheapest.
  */
-void	rev_rotate_both(t_stack_node **a, t_stack_node **b,
+void	rr_both(t_stack_node **a, t_stack_node **b,
 		t_stack_node *cheapest)
 {
 	while (*b != cheapest->target && *a != cheapest)
