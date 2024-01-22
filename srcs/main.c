@@ -14,25 +14,6 @@
 #include <stdio.h>
 #include <string.h>
 
-void	display_string_array(char **str_array)
-{
-	int	i;
-
-	if (str_array == NULL)
-	{
-		printf("Input array is NULL\n");
-		return ;
-	}
-	printf("[");
-	i = 0;
-	while (str_array[i] != NULL)
-	{
-		printf("\"%s\", ", str_array[i]);
-		i++;
-	}
-	printf("]\n");
-}
-
 void	free_string_array(char **str_array)
 {
 	int	i;
@@ -59,7 +40,7 @@ int	main(int argc, char **argv)
 	b = NULL;
 	if (argc <= 1)
 	{
-		printf("Error: no input data\n");
+		ft_printf("Error: no input data\n");
 		return (0);
 	}
 	else if (argc >= 2)
@@ -67,7 +48,7 @@ int	main(int argc, char **argv)
 		input_str = argv_to_string(argv);
 		if (!input_str)
 		{
-			printf("Error: argv_to_string failed\n");
+			ft_printf("Error: argv_to_string failed\n");
 			return (0);
 		}
 		splitted_str = ft_split(input_str, ' ');

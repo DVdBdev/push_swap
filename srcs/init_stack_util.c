@@ -6,7 +6,7 @@
 /*   By: dvan-den <dvan-den@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 19:08:34 by dvan-den          #+#    #+#             */
-/*   Updated: 2023/11/02 11:29:10 by dvan-den         ###   ########.fr       */
+/*   Updated: 2024/01/22 10:41:52 by dvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static int	calculate_total_length(char **argv)
 		curr_len = ft_strlen(argv[i]);
 		if (curr_len == 0)
 		{
-			printf("Error: Empty string in argv\n");
+			ft_printf("Error: Empty string in argv\n");
 			return (0);
 		}
 		total_length += curr_len + 1;

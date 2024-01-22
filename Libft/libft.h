@@ -16,7 +16,22 @@
 # include <stdlib.h>
 # include <limits.h>
 # include <stdint.h>
+# include <stdarg.h>
+# include <stdio.h>
+# include <string.h>
 
+# define MAX_BUFFER_SIZE 4096
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 16
+# else
+#  if BUFFER_SIZE > MAX_BUFFER_SIZE
+#   undef BUFFER_SIZE
+#   define BUFFER_SIZE MAX_BUFFER_SIZE
+#  endif
+# endif
+
+/* Libft */
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
 int		ft_isalnum(int c);
@@ -51,5 +66,20 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
+
+/* ft_printf */
+int		printf_char(int c);
+int		printf_string(char *str);
+int		printf_int(int n);
+int		printf_unsigned_int(unsigned int n);
+int		printf_percent(void);
+int		printf_hex_lower(unsigned int n);
+int		printf_hex_upper(unsigned int n);
+int		printf_pointer(void *ptr);
+int		ft_printf(const char *str, ...);
+
+/* Get-Next-Line */
+char	*get_next_line(int fd);
+void	*free_stash(char **stash, int create_line);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: dvan-den <dvan-den@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 22:46:28 by dvan-den          #+#    #+#             */
-/*   Updated: 2023/10/30 07:19:16 by dvan-den         ###   ########.fr       */
+/*   Updated: 2024/01/22 10:43:12 by dvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,11 @@ static void	push(t_stack_node **dst, t_stack_node **src)
 void	pa(t_stack_node **a, t_stack_node **b)
 {
 	push(a, b);
-	printf("pa\n");
+	ft_printf("pa\n");
 }
 
 void	pb(t_stack_node **b, t_stack_node **a)
 {
 	push(b, a);
-	printf("pb\n");
+	ft_printf("pb\n");
 }

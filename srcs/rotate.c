@@ -6,7 +6,7 @@
 /*   By: dvan-den <dvan-den@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 07:26:10 by dvan-den          #+#    #+#             */
-/*   Updated: 2023/10/30 07:36:08 by dvan-den         ###   ########.fr       */
+/*   Updated: 2024/01/22 10:43:38 by dvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,18 +31,18 @@ static void	rotate(t_stack_node **stack)
 void	ra(t_stack_node **a)
 {
 	rotate(a);
-	printf("ra\n");
+	ft_printf("ra\n");
 }
 
 void	rb(t_stack_node **b)
 {
 	rotate(b);
-	printf("rb\n");
+	ft_printf("rb\n");
 }
 
 void	rr(t_stack_node **a, t_stack_node **b)
 {
 	rotate(a);
 	rotate(b);
-	printf("rr\n");
+	ft_printf("rr\n");
 }

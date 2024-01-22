@@ -1,35 +1,57 @@
-NAME	= push_swap
-LIBFT	= ./Libft/libft.a
-SRC_DIR	= srcs
-OBJ_DIR	= obj
-INC_DIR	= inc
-CC		= cc
-CFLAGS	= -Wall -Werror -Wextra -I$(INC_DIR)
-SRCS	= $(wildcard $(SRC_DIR)/*.c)
-OBJ		= $(patsubst $(SRC_DIR)%.c,$(OBJ_DIR)%.o,$(SRCS))
+# Compiler
+CC = gcc
 
-.PHONY: start all clean fclean re
+# Compilation flags
+CFLAGS = -Wall -Wextra -Werror
 
-all: $(LIBFT) $(NAME)
+# Directories
+INC_DIR = inc
+LIBFT_DIR = Libft
+SRCS_DIR = srcs
 
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(OBJ_DIR)
-	$(CC) $(CFLAGS) -c $< -o $@
+# Source files
+SRCS = $(wildcard $(SRCS_DIR)/*.c)
 
-$(OBJ_DIR):
-	mkdir -p $(OBJ_DIR)
+# Object files
+OBJS = $(SRCS:.c=.o)
 
-$(NAME): $(OBJ)
-	$(CC) $(CFLAGS) $(INC) $(OBJ) -o $(NAME) $(LIBFT)
+# Libraries
+LIBFT_LIB = -L$(LIBFT_DIR) -lft
 
-$(LIBFT):
-	make -C ./Libft
+# Include directories
+INCLUDES = -I$(INC_DIR) -I$(LIBFT_DIR)
+
+# Target executable
+TARGET = push_swap
+
+all: $(TARGET)
+
+$(TARGET): $(OBJS)
+	@$(MAKE) -C $(LIBFT_DIR)
+	@$(CC) $(CFLAGS) $(OBJS) -o $@ $(LIBFT_LIB)
+	@echo "$(GREEN)✨ push_swap compiled!$(DEF_COLOR)"
+
+%.o: %.c
+	@$(CC) $(CFLAGS) -c $< -o $@ $(INCLUDES)
 
 clean:
-	$(RM) -r $(OBJ_DIR)
-	make clean -C ./Libft
+	@$(MAKE) -C $(LIBFT_DIR) clean
+	@rm -f $(OBJS)
 
 fclean: clean
-	$(RM) $(NAME)
-	$(RM) $(LIBFT)
+	@$(MAKE) -C $(LIBFT_DIR) fclean
+	@rm -f $(TARGET)
 
 re: fclean all
+
+DEF_COLOR = \033[0;39m
+GRAY = \033[0;90m
+RED = \033[0;91m
+GREEN = \033[0;92m
+YELLOW = \033[0;93m
+BLUE = \033[0;94m
+MAGENTA = \033[0;95m
+CYAN = \033[0;96m
+WHITE = \033[0;97m
+
+.PHONY: all clean fclean re
