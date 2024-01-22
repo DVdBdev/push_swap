@@ -72,7 +72,6 @@ int	main(int argc, char **argv)
 				sort_stacks(&a, &b);
 		}
 	}
-	//display_stack(a);
 	free_stack(&a);
 	return (0);
 }

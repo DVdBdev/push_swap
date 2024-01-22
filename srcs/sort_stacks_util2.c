@@ -12,6 +12,16 @@
 
 #include "../inc/push_swap.h"
 
+/**
+ * @brief Prepares stack A to move a specific node to the top.
+ *
+ * This function rotates stack A until the specified node
+ * (marked as the top) is at the top of the stack. The direction
+ * of rotation depends on whether the node is above or below the median.
+ *
+ * @param a A pointer to the head of stack A.
+ * @param top A pointer to the node that needs to be moved to the top.
+ */
 void	prep_a(t_stack_node **a, t_stack_node *top)
 {
 	while (*a != top)
@@ -23,6 +33,16 @@ void	prep_a(t_stack_node **a, t_stack_node *top)
 	}
 }
 
+/**
+ * @brief Prepares stack B to move a specific node to the top.
+ *
+ * This function rotates stack B until the specified node
+ * (marked as the top) is at the top of the stack. The direction of
+ * rotation depends on whether the node is above or below the median.
+ *
+ * @param b A pointer to the head of stack B.
+ * @param top A pointer to the node that needs to be moved to the top.
+ */
 void	prep_b(t_stack_node **b, t_stack_node *top)
 {
 	while (*b != top)

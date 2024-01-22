@@ -6,12 +6,22 @@
 /*   By: dvan-den <dvan-den@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 05:45:48 by dvan-den          #+#    #+#             */
-/*   Updated: 2023/11/02 11:20:36 by dvan-den         ###   ########.fr       */
+/*   Updated: 2024/01/22 12:30:42 by dvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
+/**
+ * @brief Moves the cheapest node from stack A to stack B.
+ *
+ * This function performs rotations and preparations to move the cheapest
+ * node from stack A to stack B. It takes into account the positions of
+ * the cheapest node and its target in both stacks.
+ *
+ * @param a A pointer to the head of stack A.
+ * @param b A pointer to the head of stack B.
+ */
 static void	move_a_to_b(t_stack_node **a, t_stack_node **b)
 {
 	t_stack_node	*cheapest_node;
@@ -27,12 +37,28 @@ static void	move_a_to_b(t_stack_node **a, t_stack_node **b)
 	pb(b, a);
 }
 
+/**
+ * @brief Moves the node from stack B to stack A.
+ *
+ * This function prepares and moves the node from stack B to stack A.
+ *
+ * @param a A pointer to the head of stack A.
+ * @param b A pointer to the head of stack B.
+ */
 static void	move_b_to_a(t_stack_node **a, t_stack_node **b)
 {
 	prep_a(a, (*b)->target);
 	pa(a, b);
 }
 
+/**
+ * @brief Sorts a small set of elements in stack A.
+ *
+ * This function sorts a small set of elements in stack A using rotation
+ * operations.
+ *
+ * @param a A pointer to the head of stack A.
+ */
 void	sort_small(t_stack_node **a)
 {
 	t_stack_node	*max;
@@ -46,6 +72,14 @@ void	sort_small(t_stack_node **a)
 		sa(a);
 }
 
+/**
+ * @brief Moves the node with the minimum value to the top of stack A.
+ *
+ * This function rotates stack A until the node with the minimum value
+ * is at the top.
+ *
+ * @param a A pointer to the head of stack A.
+ */
 static void	min_on_top(t_stack_node **a)
 {
 	t_stack_node	*min;
@@ -60,6 +94,16 @@ static void	min_on_top(t_stack_node **a)
 	}
 }
 
+/**
+ * @brief Sorts the stacks using a custom algorithm.
+ *
+ * This function sorts the stacks using a combination of push, rotate,
+ * and preparation operations. It handles the main logic of the sorting
+ * algorithm, moving elements between stacks until the sorting is complete.
+ *
+ * @param a A pointer to the head of stack A.
+ * @param b A pointer to the head of stack B.
+ */
 void	sort_stacks(t_stack_node **a, t_stack_node **b)
 {
 	int	a_len;
