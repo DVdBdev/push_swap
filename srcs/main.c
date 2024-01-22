@@ -48,35 +48,6 @@ void	free_string_array(char **str_array)
 	free(str_array);
 }
 
-void	display_stack(t_stack_node *stack)
-{
-	printf("Stack contents: ");
-	while (stack)
-	{
-		printf("%d ", stack->value);
-		stack = stack->next;
-	}
-	printf("\n");
-}
-
-void	display_stacks(const t_stack_node *a, const t_stack_node *b)
-{
-	printf("a: ");
-	while (a)
-	{
-		printf("%d ", a->value);
-		a = a->next;
-	}
-	printf("\n");
-	printf("b: ");
-	while (b)
-	{
-		printf("%d ", b->value);
-		b = b->next;
-	}
-	printf("\n");
-}
-
 int	main(int argc, char **argv)
 {
 	t_stack_node	*a;
@@ -112,7 +83,6 @@ int	main(int argc, char **argv)
 				sort_stacks(&a, &b);
 		}
 	}
-	display_stacks(a, b);
 	free_stack(&a);
 	return (0);
 }

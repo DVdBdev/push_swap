@@ -81,6 +81,8 @@ t_stack_node	*get_cheapest(t_stack_node *stack);
 bool			stack_sorted(t_stack_node *stack);
 void			rotate_both(t_stack_node **a, t_stack_node **b, t_stack_node *cheapest);
 void			rev_rotate_both(t_stack_node **a, t_stack_node **b, t_stack_node *cheapest);
+
+// sort_stacks_util2.c
 void			prep_a(t_stack_node **a, t_stack_node *top);
 void			prep_b(t_stack_node **b, t_stack_node *top);
 

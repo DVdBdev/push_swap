@@ -6,7 +6,7 @@
 /*   By: dvan-den <dvan-den@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 10:10:28 by dvan-den          #+#    #+#             */
-/*   Updated: 2023/11/02 11:21:02 by dvan-den         ###   ########.fr       */
+/*   Updated: 2024/01/20 16:44:27 by dvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,26 +56,4 @@ void	rev_rotate_both(t_stack_node **a, t_stack_node **b,
 		rrr(a, b);
 	current_index(*a);
 	current_index(*b);
-}
-
-void	prep_a(t_stack_node **a, t_stack_node *top)
-{
-	while (*a != top)
-	{
-		if (top->above_median)
-			ra(a);
-		else
-			rra(a);
-	}
-}
-
-void	prep_b(t_stack_node **b, t_stack_node *top)
-{
-	while (*b != top)
-	{
-		if (top->above_median)
-			rb(b);
-		else
-			rrb(b);
-	}
 }
