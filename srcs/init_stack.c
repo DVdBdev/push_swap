@@ -6,12 +6,22 @@
 /*   By: dvan-den <dvan-den@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 19:03:12 by dvan-den          #+#    #+#             */
-/*   Updated: 2023/11/02 11:31:29 by dvan-den         ###   ########.fr       */
+/*   Updated: 2024/01/24 11:58:36 by dvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
+/**
+ * @brief Appends a new node with the given value to the end of the stack.
+ *
+ * This function appends a new node with the specified value to the end 
+ * of the linked list.
+ *
+ * @param stack A pointer to the head of the stack.
+ * @param n The value to be added to the stack.
+ * @return 1 on success, 0 on failure (e.g., memory allocation failure).
+ */
 static int	append_node(t_stack_node **stack, int n)
 {
 	t_stack_node	*new_node;
@@ -38,7 +48,16 @@ static int	append_node(t_stack_node **stack, int n)
 	return (1);
 }
 
-//TODO: ERROR HANDLING IF APPEND NODE FAILS
+/**
+ * @brief Initializes a stack from an array of strings.
+ *
+ * This function initializes a stack by parsing an array of strings,
+ * converting each string to an integer, and appending the integers 
+ * to the stack.
+ *
+ * @param stack A pointer to the head of the stack to be initialized.
+ * @param splitted_str An array of strings to be parsed and added to the stack.
+ */
 void	init_stack_from_str(t_stack_node **stack, char **splitted_str)
 {
 	long	n;
@@ -48,12 +67,12 @@ void	init_stack_from_str(t_stack_node **stack, char **splitted_str)
 	while (splitted_str[i])
 	{
 		if (!is_valid_integer(splitted_str[i]))
-			handle_error_and_exit(stack, "Input contains an invalid syntax");
+			handle_error_and_exit(stack);
 		n = ft_atol(splitted_str[i]);
 		if (n > INT_MAX || n < INT_MIN)
-			handle_error_and_exit(stack, "Input contains integer overflow");
+			handle_error_and_exit(stack);
 		if (has_duplicate(*stack, (int)n))
-			handle_error_and_exit(stack, "Input contains duplicate");
+			handle_error_and_exit(stack);
 		append_node(stack, (int)n);
 		i++;
 	}

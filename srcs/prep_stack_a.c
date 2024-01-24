@@ -6,12 +6,21 @@
 /*   By: dvan-den <dvan-den@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 07:09:54 by dvan-den          #+#    #+#             */
-/*   Updated: 2023/11/02 11:41:18 by dvan-den         ###   ########.fr       */
+/*   Updated: 2024/01/24 12:03:36 by dvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
+/**
+ * @brief Assigns indices and flags for elements in the stack related
+ * to their position.
+ *
+ * This function assigns indices and flags to each element in the stack
+ * based on its position, such as whether it is above or below the median.
+ *
+ * @param stack A pointer to the head of the stack.
+ */
 void	current_index(t_stack_node *stack)
 {
 	int	i;
@@ -33,6 +42,15 @@ void	current_index(t_stack_node *stack)
 	}
 }
 
+/**
+ * @brief Sets the target element in stack B for each element in stack A.
+ *
+ * This function determines the target element in stack B for each element 
+ * in stack A.
+ *
+ * @param a A pointer to the head of stack A.
+ * @param b A pointer to the head of stack B.
+ */
 static void	set_target_a(t_stack_node *a, t_stack_node *b)
 {
 	int				closest_smaller;
@@ -60,6 +78,17 @@ static void	set_target_a(t_stack_node *a, t_stack_node *b)
 	}
 }
 
+/**
+ * @brief Performs cost analysis for each element in stack A based on its 
+ * position and target.
+ *
+ * This function calculates the push cost for each element in stack A based
+ * on its index, whether it is above or below the median, and the index of
+ * its target in stack B.
+ *
+ * @param a A pointer to the head of stack A.
+ * @param b A pointer to the head of stack B.
+ */
 static void	cost_analysis_a(t_stack_node *a, t_stack_node *b)
 {
 	int	len_a;
@@ -80,6 +109,15 @@ static void	cost_analysis_a(t_stack_node *a, t_stack_node *b)
 	}
 }
 
+/**
+ * @brief Sets the cheapest flag for the element with the lowest push cost in
+ * the stack.
+ *
+ * This function sets the "cheapest" flag for the element with the lowest push
+ * cost in the stack.
+ *
+ * @param stack A pointer to the head of the stack.
+ */
 static void	set_cheapest(t_stack_node *stack)
 {
 	int				cheapest;
@@ -100,6 +138,16 @@ static void	set_cheapest(t_stack_node *stack)
 	cheapest_node->cheapest = true;
 }
 
+/**
+ * @brief Prepares stack A for further processing in the algorithm.
+ *
+ * This function prepares stack A by assigning indices, determining targets
+ * in stack B, performing cost analysis, and setting the cheapest flag for
+ * the optimal element to push.
+ *
+ * @param a A pointer to the head of stack A.
+ * @param b A pointer to the head of stack B.
+ */
 void	prep_stack_a(t_stack_node *a, t_stack_node *b)
 {
 	current_index(a);

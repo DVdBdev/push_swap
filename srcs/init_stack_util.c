@@ -6,12 +6,21 @@
 /*   By: dvan-den <dvan-den@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 19:08:34 by dvan-den          #+#    #+#             */
-/*   Updated: 2023/11/02 11:29:10 by dvan-den         ###   ########.fr       */
+/*   Updated: 2024/01/24 12:00:41 by dvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
+/**
+ * @brief Concatenates the contents of s2 to the end of s1.
+ *
+ * This function appends the contents of the string s2 to the 
+ * end of the string s1.
+ *
+ * @param s1 The destination string.
+ * @param s2 The source string to be appended.
+ */
 static void	ft_strcat(char *s1, const char *s2)
 {
 	while (*s1 != '\0')
@@ -27,6 +36,15 @@ static void	ft_strcat(char *s1, const char *s2)
 	*s1 = '\0';
 }
 
+/**
+ * @brief Calculates the total length required to store an array of strings.
+ *
+ * This function calculates the total length required to store an array 
+ * of strings, including space for null terminators and separating spaces.
+ *
+ * @param argv The array of strings.
+ * @return The total length required, or 0 if an empty string is found in argv.
+ */
 static int	calculate_total_length(char **argv)
 {
 	int		i;
@@ -40,7 +58,7 @@ static int	calculate_total_length(char **argv)
 		curr_len = ft_strlen(argv[i]);
 		if (curr_len == 0)
 		{
-			printf("Error: Empty string in argv\n");
+			ft_printf("Error: Empty string in argv\n");
 			return (0);
 		}
 		total_length += curr_len + 1;
@@ -49,6 +67,15 @@ static int	calculate_total_length(char **argv)
 	return (total_length);
 }
 
+/**
+ * @brief Converts an array of strings to a single space-separated string.
+ *
+ * This function concatenates an array of strings into a single 
+ * space-separated string.
+ *
+ * @param argv The array of strings to be converted.
+ * @return The resulting string, or NULL if an error occurs.
+ */
 char	*argv_to_string(char **argv)
 {
 	char	*result;
@@ -78,6 +105,15 @@ char	*argv_to_string(char **argv)
 	return (result);
 }
 
+/**
+ * @brief Converts a string to a long integer.
+ *
+ * This function converts the given string to a long integer,
+ * handling leading whitespace and sign characters.
+ *
+ * @param s The input string to be converted.
+ * @return The resulting long integer.
+ */
 long	ft_atol(const char *s)
 {
 	long	result;
@@ -102,6 +138,14 @@ long	ft_atol(const char *s)
 	return (result * sign);
 }
 
+/**
+ * @brief Finds the last node in a linked list.
+ *
+ * This function returns a pointer to the last node in a linked list.
+ *
+ * @param stack The linked list.
+ * @return A pointer to the last node, or NULL if the list is empty.
+ */
 t_stack_node	*find_last(t_stack_node *stack)
 {
 	if (!stack)

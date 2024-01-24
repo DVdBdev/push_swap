@@ -13,11 +13,10 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include <stdbool.h>
-# include <limits.h>
-# include <limits.h>
-# include <stdio.h>
 # include "../Libft/libft.h"
+# include <limits.h>
+# include <stdbool.h>
+# include <stdio.h>
 
 typedef struct s_stack_node
 {
@@ -29,66 +28,77 @@ typedef struct s_stack_node
 	struct s_stack_node	*target;
 	struct s_stack_node	*next;
 	struct s_stack_node	*prev;
-}	t_stack_node;
+}						t_stack_node;
+
+typedef struct data
+{
+	t_stack_node		*a;
+	t_stack_node		*b;
+	char				*input_str;
+	char				**splitted_str;
+}						t_data;
 
 // init_stack_errors.c
-int				is_valid_integer(const char *str);
-int				has_duplicate(t_stack_node *stack, int n);
-void			free_stack(t_stack_node **stack);
-void			handle_error_and_exit(t_stack_node **stack, const char *m);
+int						is_valid_integer(const char *str);
+int						has_duplicate(t_stack_node *stack, int n);
+void					free_stack(t_stack_node **stack);
+void					handle_error_and_exit(t_stack_node **stack);
 
 // init_stack_util.c
-char			*argv_to_string(char **argv);
-long			ft_atol(const char *s);
-t_stack_node	*find_last(t_stack_node *stack);
+char					*argv_to_string(char **argv);
+long					ft_atol(const char *s);
+t_stack_node			*find_last(t_stack_node *stack);
 
 // init_stack.c
-void			init_stack_from_str(t_stack_node **stack, char **splitted_str);
+void					init_stack_from_str(t_stack_node **stack,
+							char **splitted_str);
 
 // prep_stack_a.c
-void			current_index(t_stack_node *stack);
-void			prep_stack_a(t_stack_node *a, t_stack_node *b);
+void					current_index(t_stack_node *stack);
+void					prep_stack_a(t_stack_node *a, t_stack_node *b);
 
 // prep_stack_b.c
-void			prep_stack_b(t_stack_node *a, t_stack_node *b);
+void					prep_stack_b(t_stack_node *a, t_stack_node *b);
 
 // prep_util.c
-t_stack_node	*find_max(t_stack_node *stack);
-int				stack_len(t_stack_node *stack);
-t_stack_node	*find_min(t_stack_node *stack);
+t_stack_node			*find_max(t_stack_node *stack);
+int						stack_len(t_stack_node *stack);
+t_stack_node			*find_min(t_stack_node *stack);
 
 // push.c
-void			pa(t_stack_node **a, t_stack_node **b);
-void			pb(t_stack_node **b, t_stack_node **a);
+void					pa(t_stack_node **a, t_stack_node **b);
+void					pb(t_stack_node **b, t_stack_node **a);
 
 // swap.c
-void			sa(t_stack_node **a);
-void			sb(t_stack_node **b);
-void			ss(t_stack_node **a, t_stack_node **b);
+void					sa(t_stack_node **a);
+void					sb(t_stack_node **b);
+void					ss(t_stack_node **a, t_stack_node **b);
 
 // rotate.c
-void			ra(t_stack_node **a);
-void			rb(t_stack_node **b);
-void			rr(t_stack_node **a, t_stack_node **b);
+void					ra(t_stack_node **a);
+void					rb(t_stack_node **b);
+void					rr(t_stack_node **a, t_stack_node **b);
 
 // reverse_rotate.c
-void			rra(t_stack_node **a);
-void			rrb(t_stack_node **b);
-void			rrr(t_stack_node **a, t_stack_node **b);
+void					rra(t_stack_node **a);
+void					rrb(t_stack_node **b);
+void					rrr(t_stack_node **a, t_stack_node **b);
 
 // sort_stacks_util.c
-t_stack_node	*get_cheapest(t_stack_node *stack);
-bool			stack_sorted(t_stack_node *stack);
-void			rotate_both(t_stack_node **a, t_stack_node **b, t_stack_node *cheapest);
-void			rev_rotate_both(t_stack_node **a, t_stack_node **b, t_stack_node *cheapest);
-void			prep_a(t_stack_node **a, t_stack_node *top);
-void			prep_b(t_stack_node **b, t_stack_node *top);
+t_stack_node			*get_cheapest(t_stack_node *stack);
+bool					stack_sorted(t_stack_node *stack);
+void					r_both(t_stack_node **a, t_stack_node **b,
+							t_stack_node *c);
+void					rr_both(t_stack_node **a, t_stack_node **b,
+							t_stack_node *c);
+void					prep_a(t_stack_node **a, t_stack_node *top);
+void					prep_b(t_stack_node **b, t_stack_node *top);
 
 // sort_stacks.c
-void			sort_small(t_stack_node **a);
-void			sort_stacks(t_stack_node **a, t_stack_node **b);
+void					sort_small(t_stack_node **a);
+void					sort_stacks(t_stack_node **a, t_stack_node **b);
 
 // main.c
-void			free_string_array(char **str_array);
+void					free_string_array(char **str_array);
 
 #endif

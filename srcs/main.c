@@ -6,7 +6,7 @@
 /*   By: dvan-den <dvan-den@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 20:37:21 by dvan-den          #+#    #+#             */
-/*   Updated: 2023/11/02 11:50:43 by dvan-den         ###   ########.fr       */
+/*   Updated: 2024/01/24 12:11:46 by dvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,15 @@
 #include <stdio.h>
 #include <string.h>
 
-void	display_string_array(char **str_array)
-{
-	int	i;
-
-	if (str_array == NULL)
-	{
-		printf("Input array is NULL\n");
-		return ;
-	}
-	printf("[");
-	i = 0;
-	while (str_array[i] != NULL)
-	{
-		printf("\"%s\", ", str_array[i]);
-		i++;
-	}
-	printf("]\n");
-}
-
+/**
+ * @brief Frees the memory allocated for a dynamically allocated
+ * string array.
+ *
+ * This function iterates through the elements of the string array and
+ * frees the memory for each element.
+ *
+ * @param str_array A pointer to the dynamically allocated string array.
+ */
 void	free_string_array(char **str_array)
 {
 	int	i;
@@ -48,71 +38,71 @@ void	free_string_array(char **str_array)
 	free(str_array);
 }
 
-void	display_stack(t_stack_node *stack)
+/**
+ * @brief Prints an error message and returns 0.
+ *
+ * This function is responsible for reporting errors in the program.
+ *
+ * @param msg A pointer to a character array representing the error message.
+ * @return Returns 0 after printing the error message.
+ */
+static int	error(char *msg)
 {
-	printf("Stack contents: ");
-	while (stack)
-	{
-		printf("%d ", stack->value);
-		stack = stack->next;
-	}
-	printf("\n");
+	ft_printf("%s\n", msg);
+	return (0);
 }
 
-void	display_stacks(const t_stack_node *a, const t_stack_node *b)
+/**
+ * @brief Cleans up allocated resources.
+ *
+ * This function is responsible for cleaning up resources, 
+ * specifically freeing the memory
+ * associated with the stack in the provided 'data' structure.
+ *
+ * @param data The 't_data' structure containing program data.
+ * @return Returns 0 after cleanup.
+ */
+static int	cleanup(t_data data)
 {
-	printf("a: ");
-	while (a)
-	{
-		printf("%d ", a->value);
-		a = a->next;
-	}
-	printf("\n");
-	printf("b: ");
-	while (b)
-	{
-		printf("%d ", b->value);
-		b = b->next;
-	}
-	printf("\n");
+	free_stack(&data.a);
+	return (0);
 }
 
+/**
+ * @brief Main function for the sorting algorithm using stacks.
+ *
+ * This function initializes stacks A and B, processes the input,
+ * and performs the sorting algorithm based on the stack size.
+ *
+ * @param argc The number of command-line arguments.
+ * @param argv An array of strings containing the command-line arguments.
+ * @return 0 on successful execution.
+ */
 int	main(int argc, char **argv)
 {
-	t_stack_node	*a;
-	t_stack_node	*b;
-	char			*input_str;
-	char			**splitted_str;
+	t_data	data;
 
-	a = NULL;
-	b = NULL;
+	data.a = NULL;
+	data.b = NULL;
 	if (argc <= 1)
-	{
-		printf("Error: no input data\n");
-		return (0);
-	}
+		return (error("Error"));
 	else if (argc >= 2)
 	{
-		input_str = argv_to_string(argv);
-		if (!input_str)
+		data.input_str = argv_to_string(argv);
+		if (!data.input_str)
+			return (error("Error"));
+		data.splitted_str = ft_split(data.input_str, ' ');
+		free(data.input_str);
+		init_stack_from_str(&data.a, data.splitted_str);
+		if (!stack_sorted(data.a))
 		{
-			printf("Error: argv_to_string failed\n");
-			return (0);
-		}
-		splitted_str = ft_split(input_str, ' ');
-		free(input_str);
-		init_stack_from_str(&a, splitted_str);
-		if (!stack_sorted(a))
-		{
-			if (stack_len(a) == 2)
-				sa(&a);
-			else if (stack_len(a) == 3)
-				sort_small(&a);
+			if (stack_len(data.a) == 2)
+				sa(&data.a);
+			else if (stack_len(data.a) == 3)
+				sort_small(&data.a);
 			else
-				sort_stacks(&a, &b);
+				sort_stacks(&data.a, &data.b);
 		}
 	}
-	display_stacks(a, b);
-	free_stack(&a);
-	return (0);
+	return (cleanup(data));
 }

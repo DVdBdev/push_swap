@@ -6,7 +6,7 @@
 /*   By: dvan-den <dvan-den@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 06:54:38 by dvan-den          #+#    #+#             */
-/*   Updated: 2023/10/30 07:12:33 by dvan-den         ###   ########.fr       */
+/*   Updated: 2024/01/24 11:30:33 by dvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,18 +31,18 @@ static void	swap_top_two(t_stack_node **stack)
 void	sa(t_stack_node **a)
 {
 	swap_top_two(a);
-	printf("sa\n");
+	ft_printf("sa\n");
 }
 
 void	sb(t_stack_node **b)
 {
 	swap_top_two(b);
-	printf("sb\n");
+	ft_printf("sb\n");
 }
 
 void	ss(t_stack_node **a, t_stack_node **b)
 {
 	swap_top_two(a);
 	swap_top_two(b);
-	printf("ss\n");
+	ft_printf("ss\n");
 }

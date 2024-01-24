@@ -6,12 +6,20 @@
 /*   By: dvan-den <dvan-den@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 07:26:10 by dvan-den          #+#    #+#             */
-/*   Updated: 2023/10/30 07:36:08 by dvan-den         ###   ########.fr       */
+/*   Updated: 2024/01/24 12:08:07 by dvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
+/**
+ * @brief Performs a rotation on the given stack.
+ *
+ * This function moves the top node of the stack to the end
+ * effectively performing a rotation on the stack.
+ *
+ * @param stack A pointer to the head of the stack.
+ */
 static void	rotate(t_stack_node **stack)
 {
 	t_stack_node	*top_node;
@@ -28,21 +36,46 @@ static void	rotate(t_stack_node **stack)
 	top_node->next = NULL;
 }
 
+/**
+ * @brief Performs a rotation on stack A.
+ *
+ * This function moves the top node of stack A to the end
+ * effectively performing a rotation on stack A.
+ *
+ * @param a A pointer to the head of stack A.
+ */
 void	ra(t_stack_node **a)
 {
 	rotate(a);
-	printf("ra\n");
+	ft_printf("ra\n");
 }
 
+/**
+ * @brief Performs a rotation on stack B.
+ *
+ * This function moves the top node of stack B to the end
+ * effectively performing a rotation on stack B.
+ *
+ * @param b A pointer to the head of stack B.
+ */
 void	rb(t_stack_node **b)
 {
 	rotate(b);
-	printf("rb\n");
+	ft_printf("rb\n");
 }
 
+/**
+ * @brief Performs a rotation on both stack A and stack B.
+ *
+ * This function moves the top node of both stack A and stack B to the end,
+ * effectively performing a rotation on both stacks.
+ *
+ * @param a A pointer to the head of stack A.
+ * @param b A pointer to the head of stack B.
+ */
 void	rr(t_stack_node **a, t_stack_node **b)
 {
 	rotate(a);
 	rotate(b);
-	printf("rr\n");
+	ft_printf("rr\n");
 }
