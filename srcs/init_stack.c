@@ -6,7 +6,7 @@
 /*   By: dvan-den <dvan-den@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 19:03:12 by dvan-den          #+#    #+#             */
-/*   Updated: 2024/01/22 12:03:31 by dvan-den         ###   ########.fr       */
+/*   Updated: 2024/01/24 12:21:38 by dvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,12 +67,12 @@ void	init_stack_from_str(t_stack_node **stack, char **splitted_str)
 	while (splitted_str[i])
 	{
 		if (!is_valid_integer(splitted_str[i]))
-			handle_error_and_exit(stack, "Input contains an invalid syntax");
+			handle_error_and_exit(stack);
 		n = ft_atol(splitted_str[i]);
 		if (n > INT_MAX || n < INT_MIN)
-			handle_error_and_exit(stack, "Input contains integer overflow");
+			handle_error_and_exit(stack);
 		if (has_duplicate(*stack, (int)n))
-			handle_error_and_exit(stack, "Input contains duplicate");
+			handle_error_and_exit(stack);
 		append_node(stack, (int)n);
 		i++;
 	}

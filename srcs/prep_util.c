@@ -6,7 +6,7 @@
 /*   By: dvan-den <dvan-den@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 09:42:45 by dvan-den          #+#    #+#             */
-/*   Updated: 2024/01/22 12:10:43 by dvan-den         ###   ########.fr       */
+/*   Updated: 2024/01/24 12:22:37 by dvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,6 @@ t_stack_node	*find_min(t_stack_node *stack)
  * @param stack A pointer to the head of the linked list.
  * @return The length of the linked list.
  */
-
 int	stack_len(t_stack_node *stack)
 {
 	int	len;

@@ -6,7 +6,7 @@
 /*   By: dvan-den <dvan-den@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 19:04:09 by dvan-den          #+#    #+#             */
-/*   Updated: 2024/01/22 11:46:05 by dvan-den         ###   ########.fr       */
+/*   Updated: 2024/01/24 12:21:13 by dvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,16 +97,15 @@ void	free_stack(t_stack_node **stack)
 /**
  * @brief Handles errors, frees memory, and exits the program.
  *
- * This function is called in case of an error. It prints an error message,
+ * This function is called in case of an error. It
  * frees the memory occupied by the stack, and exits the program with 
  * an error code.
  *
  * @param stack A pointer to the stack to be freed.
- * @param message The error message to be displayed.
  */
-void	handle_error_and_exit(t_stack_node **stack, const char *message)
+void	handle_error_and_exit(t_stack_node **stack)
 {
 	free_stack(stack);
-	ft_printf("Error\n", message);
+	ft_printf("Error\n");
 	exit(1);
 }

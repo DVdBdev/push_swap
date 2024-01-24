@@ -6,7 +6,7 @@
 /*   By: dvan-den <dvan-den@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 07:09:54 by dvan-den          #+#    #+#             */
-/*   Updated: 2024/01/22 12:07:49 by dvan-den         ###   ########.fr       */
+/*   Updated: 2024/01/24 12:22:11 by dvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,7 +118,6 @@ static void	cost_analysis_a(t_stack_node *a, t_stack_node *b)
  *
  * @param stack A pointer to the head of the stack.
  */
-
 static void	set_cheapest(t_stack_node *stack)
 {
 	int				cheapest;
