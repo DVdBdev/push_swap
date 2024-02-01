@@ -3,8 +3,8 @@
 
 # include <stdbool.h> //To use bool flags, e.g, to print or not to print
 # include <limits.h> //To define MIN and MAX macros
-# include "../libft/inc/libft.h"
-# include "../libft/inc/ft_printf.h"
+# include "../Libft/inc/libft.h"
+# include "../Libft/inc/ft_printf.h"
 
 typedef struct s_stack_node //A container of data enclosed in {} braces. `s_` for struct
 {
@@ -44,17 +44,17 @@ t_stack_node	*find_min(t_stack_node *stack); //Find the smallest number
 t_stack_node	*find_max(t_stack_node *stack); //Find the biggest number
 
 //***Commands
-void			sa(t_stack_node **a, bool print);
-void			sb(t_stack_node **b, bool print);
-void			ss(t_stack_node **a, t_stack_node **b, bool print);
-void			ra(t_stack_node **a, bool print);
-void			rb(t_stack_node **b, bool print);
-void			rr(t_stack_node **a, t_stack_node **b, bool print);
-void			rra(t_stack_node **a, bool print);
-void			rrb(t_stack_node **b, bool print);
-void			rrr(t_stack_node **a, t_stack_node **b, bool print);
-void			pa(t_stack_node **a, t_stack_node **b, bool print);
-void			pb(t_stack_node **b, t_stack_node **a, bool print);
+void			sa(t_stack_node **a);
+void			sb(t_stack_node **b);
+void			ss(t_stack_node **a, t_stack_node **b);
+void			ra(t_stack_node **a);
+void			rb(t_stack_node **b);
+void			rr(t_stack_node **a, t_stack_node **b);
+void			rra(t_stack_node **a);
+void			rrb(t_stack_node **b);
+void			rrr(t_stack_node **a, t_stack_node **b);
+void			pa(t_stack_node **a, t_stack_node **b);
+void			pb(t_stack_node **b, t_stack_node **a);
 
 //***Algorithm
 void			sort_three(t_stack_node **a);

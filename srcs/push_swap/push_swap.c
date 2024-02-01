@@ -15,7 +15,7 @@ int	main(int argc, char **argv) //Define a program that takes in a random input 
 	if (!stack_sorted(a)) //Check if the stack is not sorted
 	{
 		if (stack_len(a) == 2) //If not, and there are two numbers, swap the first two nodes
-			sa(&a, false);
+			sa(&a);
 		else if (stack_len(a) == 3) //If not, and there are three numbers, call the sort three algorithm
 			sort_three(&a);
 		else
