@@ -1,104 +1,63 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: dvan-den <dvan-den@student.s19.be>         +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/29 22:06:41 by dvan-den          #+#    #+#             */
-/*   Updated: 2024/01/24 12:20:30 by dvan-den         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "../Libft/libft.h"
-# include <limits.h>
-# include <stdbool.h>
-# include <stdio.h>
+# include <stdbool.h> //To use bool flags, e.g, to print or not to print
+# include <limits.h> //To define MIN and MAX macros
+# include "../libft/inc/libft.h"
+# include "../libft/inc/ft_printf.h"
 
-typedef struct s_stack_node
+typedef struct s_stack_node //A container of data enclosed in {} braces. `s_` for struct
 {
-	int					value;
-	int					index;
-	int					push_cost;
-	bool				above_median;
-	bool				cheapest;
-	struct s_stack_node	*target;
-	struct s_stack_node	*next;
-	struct s_stack_node	*prev;
-}						t_stack_node;
+	int					nbr; //The number to sort
+	int					index; //The number's position in the stack
+	int					push_cost; //How many commands in total
+	bool				above_median; //Used to calculate `push_cost`
+	bool				cheapest; //The node that is the cheapest to do commands
+	struct s_stack_node	*target_node; //The target node of a node in the opposite stack
+	struct s_stack_node	*next; //A pointer to the next node
+	struct s_stack_node	*prev; //A pointer to the previous node
+}	t_stack_node; //The "shortened name", "t_stack_node". `t_` for type
 
-typedef struct data
-{
-	t_stack_node		*a;
-	t_stack_node		*b;
-	char				*input_str;
-	char				**splitted_str;
-}						t_data;
+//***Handle errors
+int				error_syntax(char *str_n); 
+int				error_duplicate(t_stack_node *a, int n);
+void			free_stack(t_stack_node **stack);
+void			free_errors(t_stack_node **a);
 
-// init_stack_errors.c
-int						is_valid_integer(const char *str);
-int						has_duplicate(t_stack_node *stack, int n);
-void					free_stack(t_stack_node **stack);
-void					handle_error_and_exit(t_stack_node **stack);
+//***Stack initiation
+void			init_stack_a(t_stack_node **a, char **argv); //Initiate stack `a` before processing
+char			**split(char *s, char c); //To handle input of numbers as a string argument, e.g. enclosed in " "
 
-// init_stack_util.c
-char					*argv_to_string(char **argv);
-long					ft_atol(const char *s);
-t_stack_node			*find_last(t_stack_node *stack);
+//***Nodes initiation
+void			init_nodes_a(t_stack_node *a, t_stack_node *b); //To prep all nodes for pushing `a` to `b`
+void			init_nodes_b(t_stack_node *a, t_stack_node *b); //To prep all nodes for pushing `b` back to `a`
+void			current_index(t_stack_node *stack); //Set the node's current index
+void			set_cheapest(t_stack_node *stack); //Set the stack's cheapest node
+t_stack_node	*get_cheapest(t_stack_node *stack); //Get the cheapest node of a stack
+void			prep_for_push(t_stack_node **s, t_stack_node *n, char c); //Prep the required nodes on top for pushing
 
-// init_stack.c
-void					init_stack_from_str(t_stack_node **stack,
-							char **splitted_str);
+//***Stack utils
+int				stack_len(t_stack_node *stack); //Calculate the length of a stack
+t_stack_node	*find_last(t_stack_node *stack); //Find the last node of a stack
+bool			stack_sorted(t_stack_node *stack); //To check whether a stack is sorted
+t_stack_node	*find_min(t_stack_node *stack); //Find the smallest number
+t_stack_node	*find_max(t_stack_node *stack); //Find the biggest number
 
-// prep_stack_a.c
-void					current_index(t_stack_node *stack);
-void					prep_stack_a(t_stack_node *a, t_stack_node *b);
+//***Commands
+void			sa(t_stack_node **a, bool print);
+void			sb(t_stack_node **b, bool print);
+void			ss(t_stack_node **a, t_stack_node **b, bool print);
+void			ra(t_stack_node **a, bool print);
+void			rb(t_stack_node **b, bool print);
+void			rr(t_stack_node **a, t_stack_node **b, bool print);
+void			rra(t_stack_node **a, bool print);
+void			rrb(t_stack_node **b, bool print);
+void			rrr(t_stack_node **a, t_stack_node **b, bool print);
+void			pa(t_stack_node **a, t_stack_node **b, bool print);
+void			pb(t_stack_node **b, t_stack_node **a, bool print);
 
-// prep_stack_b.c
-void					prep_stack_b(t_stack_node *a, t_stack_node *b);
-
-// prep_util.c
-t_stack_node			*find_max(t_stack_node *stack);
-int						stack_len(t_stack_node *stack);
-t_stack_node			*find_min(t_stack_node *stack);
-
-// push.c
-void					pa(t_stack_node **a, t_stack_node **b);
-void					pb(t_stack_node **b, t_stack_node **a);
-
-// swap.c
-void					sa(t_stack_node **a);
-void					sb(t_stack_node **b);
-void					ss(t_stack_node **a, t_stack_node **b);
-
-// rotate.c
-void					ra(t_stack_node **a);
-void					rb(t_stack_node **b);
-void					rr(t_stack_node **a, t_stack_node **b);
-
-// reverse_rotate.c
-void					rra(t_stack_node **a);
-void					rrb(t_stack_node **b);
-void					rrr(t_stack_node **a, t_stack_node **b);
-
-// sort_stacks_util.c
-t_stack_node			*get_cheapest(t_stack_node *stack);
-bool					stack_sorted(t_stack_node *stack);
-void					r_both(t_stack_node **a, t_stack_node **b,
-							t_stack_node *c);
-void					rr_both(t_stack_node **a, t_stack_node **b,
-							t_stack_node *c);
-void					prep_a(t_stack_node **a, t_stack_node *top);
-void					prep_b(t_stack_node **b, t_stack_node *top);
-
-// sort_stacks.c
-void					sort_small(t_stack_node **a);
-void					sort_stacks(t_stack_node **a, t_stack_node **b);
-
-// main.c
-void					free_string_array(char **str_array);
+//***Algorithm
+void			sort_three(t_stack_node **a);
+void			sort_stacks(t_stack_node **a, t_stack_node **b); //Turk algorithm
 
 #endif
