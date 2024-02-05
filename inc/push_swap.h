@@ -3,8 +3,7 @@
 
 # include <stdbool.h>
 # include <limits.h>
-# include "../Libft/inc/libft.h"
-# include "../Libft/inc/ft_printf.h"
+# include "../Libft/libft.h"
 
 typedef struct s_stack_node
 {
@@ -42,6 +41,8 @@ t_stack_node	*find_last(t_stack_node *stack);
 bool			stack_sorted(t_stack_node *stack);
 t_stack_node	*find_min(t_stack_node *stack);
 t_stack_node	*find_max(t_stack_node *stack);
+void			rotate_both(t_stack_node **a, t_stack_node **b, t_stack_node *cheapest_node);
+void			rev_rotate_both(t_stack_node **a, t_stack_node **b, t_stack_node *cheapest_node);
 
 //***Commands
 void			sa(t_stack_node **a);

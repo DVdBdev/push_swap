@@ -1,26 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_three.c                                       :+:      :+:    :+:   */
+/*   printf_unsigned_int.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dvan-den <dvan-den@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/05 16:02:15 by dvan-den          #+#    #+#             */
-/*   Updated: 2024/02/05 16:02:15 by dvan-den         ###   ########.fr       */
+/*   Created: 2023/10/24 00:02:02 by dvan-den          #+#    #+#             */
+/*   Updated: 2023/10/24 00:11:53 by dvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/push_swap.h"
+#include "libft.h"
 
-void	sort_three(t_stack_node **a)
+int	printf_unsigned_int(unsigned int n)
 {
-	t_stack_node	*biggest_node;
+	int	len;
 
-	biggest_node = find_max(*a);
-	if (biggest_node == *a)
-		ra(a);
-	else if ((*a)->next == biggest_node)
-		rra(a);
-	if ((*a)->nbr > (*a)->next->nbr)
-		sa(a);
+	len = 0;
+	if (n >= 10)
+		len = len + printf_unsigned_int(n / 10);
+	len = len + printf_char('0' + n % 10);
+	return (len);
 }

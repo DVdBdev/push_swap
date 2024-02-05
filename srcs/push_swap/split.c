@@ -38,11 +38,12 @@ static int	count_words(char *s, char c)
 
 static char	*get_next_word(char *s, char c)
 {
-	static int	cursor = 0;
+	static int	cursor;
 	char		*next_word;
 	int			len;
 	int			i;
 
+	cursor = 0;
 	len = 0;
 	i = 0;
 	while (s[cursor] == c)
@@ -58,7 +59,7 @@ static char	*get_next_word(char *s, char c)
 	return (next_word);
 }
 
-char **split(char *s, char c)
+char	**split(char *s, char c)
 {
 	int		words_count;
 	char	**result_array;

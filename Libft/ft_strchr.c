@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_three.c                                       :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dvan-den <dvan-den@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/05 16:02:15 by dvan-den          #+#    #+#             */
-/*   Updated: 2024/02/05 16:02:15 by dvan-den         ###   ########.fr       */
+/*   Created: 2023/10/19 19:28:32 by dvan-den          #+#    #+#             */
+/*   Updated: 2023/10/27 01:48:06 by dvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/push_swap.h"
+#include "libft.h"
 
-void	sort_three(t_stack_node **a)
+char	*ft_strchr(const char *str, int c)
 {
-	t_stack_node	*biggest_node;
+	unsigned char	target;
 
-	biggest_node = find_max(*a);
-	if (biggest_node == *a)
-		ra(a);
-	else if ((*a)->next == biggest_node)
-		rra(a);
-	if ((*a)->nbr > (*a)->next->nbr)
-		sa(a);
+	target = (unsigned char)c;
+	while (*str)
+	{
+		if (*str == target)
+			return ((char *)str);
+		str++;
+	}
+	if (target == '\0')
+		return ((char *)str);
+	return (NULL);
 }

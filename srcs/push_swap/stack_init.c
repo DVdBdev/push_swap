@@ -6,7 +6,7 @@
 /*   By: dvan-den <dvan-den@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 16:04:59 by dvan-den          #+#    #+#             */
-/*   Updated: 2024/02/05 16:04:59 by dvan-den         ###   ########.fr       */
+/*   Updated: 2024/02/05 16:12:16 by dvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ static long	ft_atol(const char *s)
 	int		sign;
 
 	result = 0;
-	sign = 1; 
-	while (*s == ' ' || *s == '\t' || *s == '\n' || \
-			*s == '\r' || *s == '\f' || *s == '\v')
+	sign = 1;
+	while (*s == ' ' || *s == '\t' || *s == '\n'
+		|| *s == '\r' || *s == '\f' || *s == '\v')
 		s++;
 	if (*s == '-' || *s == '+')
 	{
@@ -72,7 +72,7 @@ void	init_stack_a(t_stack_node **a, char **argv)
 		if (n > INT_MAX || n < INT_MIN)
 			free_errors(a);
 		if (error_duplicate(*a, (int)n))
-			free_errors(a); 
+			free_errors(a);
 		append_node(a, (int)n);
 		i++;
 	}
@@ -92,8 +92,8 @@ t_stack_node	*get_cheapest(t_stack_node *stack)
 }
 
 void	prep_for_push(t_stack_node **stack,
-						t_stack_node *top_node,
-						char stack_name)
+					t_stack_node *top_node,
+					char stack_name)
 {
 	while (*stack != top_node)
 	{
@@ -110,6 +110,6 @@ void	prep_for_push(t_stack_node **stack,
 				rb(stack);
 			else
 				rrb(stack);
-		}	
+		}
 	}
 }
