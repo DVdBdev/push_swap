@@ -1,5 +1,3 @@
-//See notes below, why we had to create a "mutable" ft_split, rather than using our libft version
-
 #include "../../inc/push_swap.h"
 
 static int	count_words(char *s, char c) //Define a function that returns the substrings count in a string seperated by a delimiter
