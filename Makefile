@@ -2,7 +2,7 @@
 NAME				= push_swap
 
 # Directories
-LIBFT				= ./libft/libft.a
+LIBFT				= ./Libft/libft.a
 INC					= inc/
 SRC_DIR				= srcs/
 OBJ_DIR				= obj/
@@ -40,12 +40,13 @@ start:
 					@make all
 
 $(LIBFT):
-					@make -C ./libft
+					@make -C ./Libft
 
 all: 				$(NAME)
 
 $(NAME): 			$(OBJ) $(LIBFT)
 					@$(CC) $(CFLAGS) $(INC) $(OBJ) $(LIBFT) -o $(NAME)
+					@echo "$(GREEN)✨ push_swap compiled!$(DEF_COLOR)"
 
 # Compile object files from source files
 $(OBJ_DIR)%.o:		$(SRC_DIR)%.c 
@@ -54,13 +55,25 @@ $(OBJ_DIR)%.o:		$(SRC_DIR)%.c
 
 clean:
 					@$(RM) -r $(OBJ_DIR)
-					@make clean -C ./libft
+					@make clean -C ./Libft
+					@echo "$(RED)🗑️  object files$(DEF_COLOR)"
 
 fclean: 			clean
 					@$(RM) $(NAME)
 					@$(RM) $(LIBFT)
+					@echo "$(RED)🗑️  executables$(DEF_COLOR)"
 
 re: 				fclean all
+
+DEF_COLOR = \033[0;39m
+GRAY = \033[0;90m
+RED = \033[0;91m
+GREEN = \033[0;92m
+YELLOW = \033[0;93m
+BLUE = \033[0;94m
+MAGENTA = \033[0;95m
+CYAN = \033[0;96m
+WHITE = \033[0;97m
 
 # Phony targets represent actions not files
 .PHONY: 			start all clean fclean re
