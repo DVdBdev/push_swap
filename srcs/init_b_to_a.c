@@ -6,11 +6,11 @@
 /*   By: dvan-den <dvan-den@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 16:02:26 by dvan-den          #+#    #+#             */
-/*   Updated: 2024/02/05 16:11:39 by dvan-den         ###   ########.fr       */
+/*   Updated: 2024/02/28 17:00:17 by dvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/push_swap.h"
+#include "../inc/push_swap.h"
 
 static void	set_target_b(t_stack_node *a, t_stack_node *b)
 {

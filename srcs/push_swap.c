@@ -6,11 +6,11 @@
 /*   By: dvan-den <dvan-den@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 16:02:31 by dvan-den          #+#    #+#             */
-/*   Updated: 2024/02/05 16:02:31 by dvan-den         ###   ########.fr       */
+/*   Updated: 2024/02/28 17:00:21 by dvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/push_swap.h"
+#include "../inc/push_swap.h"
 
 int	main(int argc, char **argv)
 {

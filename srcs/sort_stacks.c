@@ -6,11 +6,11 @@
 /*   By: dvan-den <dvan-den@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 16:02:10 by dvan-den          #+#    #+#             */
-/*   Updated: 2024/02/05 16:18:24 by dvan-den         ###   ########.fr       */
+/*   Updated: 2024/02/28 17:01:18 by dvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/push_swap.h"
+#include "../inc/push_swap.h"
 
 static void	move_a_to_b(t_stack_node **a, t_stack_node **b)
 {
