@@ -12,17 +12,17 @@
 
 #include "../inc/push_swap.h"
 
-void	rotate_both(t_stack_node **a, t_stack_node **b, t_stack_node *cheapest_node)
+void	r_both(t_stack_node **a, t_stack_node **b, t_stack_node *cheapNode)
 {
-	while (*b != cheapest_node->target_node && *a != cheapest_node)
+	while (*b != cheapNode->target_node && *a != cheapNode)
 		rr(a, b);
 	current_index(*a);
 	current_index(*b);
 }
 
-void	rev_rotate_both(t_stack_node **a, t_stack_node **b, t_stack_node *cheapest_node)
+void	rr_both(t_stack_node **a, t_stack_node **b, t_stack_node *cheapNode)
 {
-	while (*b != cheapest_node->target_node && *a != cheapest_node)
+	while (*b != cheapNode->target_node && *a != cheapNode)
 		rrr(a, b);
 	current_index(*a);
 	current_index(*b);

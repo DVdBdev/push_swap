@@ -29,7 +29,7 @@ typedef struct s_stack_node
 	struct s_stack_node	*prev;
 }	t_stack_node;
 
-int				error_syntax(char *str_n); 
+int				error_syntax(char *str_n);
 int				error_duplicate(t_stack_node *a, int n);
 void			free_stack(t_stack_node **stack);
 void			free_errors(t_stack_node **a);
@@ -46,8 +46,8 @@ t_stack_node	*find_last(t_stack_node *stack);
 bool			stack_sorted(t_stack_node *stack);
 t_stack_node	*find_min(t_stack_node *stack);
 t_stack_node	*find_max(t_stack_node *stack);
-void			rotate_both(t_stack_node **a, t_stack_node **b, t_stack_node *cheapest_node);
-void			rev_rotate_both(t_stack_node **a, t_stack_node **b, t_stack_node *cheapest_node);
+void			r_both(t_stack_node **a, t_stack_node **b, t_stack_node *c);
+void			rr_both(t_stack_node **a, t_stack_node **b, t_stack_node *c);
 void			sa(t_stack_node **a);
 void			sb(t_stack_node **b);
 void			ss(t_stack_node **a, t_stack_node **b);
