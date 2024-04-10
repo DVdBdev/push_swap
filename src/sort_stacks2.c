@@ -6,7 +6,7 @@
 /*   By: dvan-den <dvan-den@student.s19.be >        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 14:26:04 by dvan-den          #+#    #+#             */
-/*   Updated: 2024/04/04 15:12:43 by dvan-den         ###   ########.fr       */
+/*   Updated: 2024/04/10 15:27:25 by dvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ void	sort_stacks(t_stack_node **a, t_stack_node **b)
 
 	len_a = stack_len(*a);
 	if (len_a-- > 3 && !stack_sorted(*a))
-		pb(b, a, false);
+		pb(b, a);
 	if (len_a-- > 3 && !stack_sorted(*a))
-		pb(b, a, false);
+		pb(b, a);
 	while (len_a-- > 3 && !stack_sorted(*a))
 	{
 		init_nodes_a(*a, *b);
