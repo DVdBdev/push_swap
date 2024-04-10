@@ -60,17 +60,17 @@ void			move_b_to_a(t_stack_node **a, t_stack_node **b);
 void			min_on_top(t_stack_node **a);
 
 //***Commands
-void			sa(t_stack_node **a, bool print);
-void			sb(t_stack_node **b, bool print);
-void			ss(t_stack_node **a, t_stack_node **b, bool print);
-void			ra(t_stack_node **a, bool print);
-void			rb(t_stack_node **b, bool print);
-void			rr(t_stack_node **a, t_stack_node **b, bool print);
-void			rra(t_stack_node **a, bool print);
-void			rrb(t_stack_node **b, bool print);
-void			rrr(t_stack_node **a, t_stack_node **b, bool print);
-void			pa(t_stack_node **a, t_stack_node **b, bool print);
-void			pb(t_stack_node **b, t_stack_node **a, bool print);
+void			sa(t_stack_node **a);
+void			sb(t_stack_node **b);
+void			ss(t_stack_node **a, t_stack_node **b);
+void			ra(t_stack_node **a);
+void			rb(t_stack_node **b);
+void			rr(t_stack_node **a, t_stack_node **b);
+void			rra(t_stack_node **a);
+void			rrb(t_stack_node **b);
+void			rrr(t_stack_node **a, t_stack_node **b);
+void			pa(t_stack_node **a, t_stack_node **b);
+void			pb(t_stack_node **b, t_stack_node **a);
 
 //***Algorithm
 void			sort_three(t_stack_node **a);

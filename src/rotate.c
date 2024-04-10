@@ -6,7 +6,7 @@
 /*   By: dvan-den <dvan-den@student.s19.be >        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 14:20:16 by dvan-den          #+#    #+#             */
-/*   Updated: 2024/04/04 15:12:38 by dvan-den         ###   ########.fr       */
+/*   Updated: 2024/04/10 15:19:46 by dvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,24 +26,21 @@ static void	rotate(t_stack_node **stack)
 	last_node->next->next = NULL;
 }
 
-void	ra(t_stack_node **a, bool print)
+void	ra(t_stack_node **a)
 {
 	rotate(a);
-	if (!print)
-		ft_printf("ra\n");
+	ft_printf("ra\n");
 }
 
-void	rb(t_stack_node **b, bool print)
+void	rb(t_stack_node **b)
 {
 	rotate(b);
-	if (!print)
-		ft_printf("rb\n");
+	ft_printf("rb\n");
 }
 
-void	rr(t_stack_node **a, t_stack_node **b, bool print)
+void	rr(t_stack_node **a, t_stack_node **b)
 {
 	rotate(a);
 	rotate(b);
-	if (!print)
-		ft_printf("rr\n");
+	ft_printf("rr\n");
 }
