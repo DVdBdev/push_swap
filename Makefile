@@ -42,6 +42,7 @@ all: 				$(NAME)
 
 $(NAME): 			$(OBJ) $(LIBFT)
 					@$(CC) $(CFLAGS) $(INC) $(OBJ) $(LIBFT) -o $(NAME)
+					@echo "$(GREEN)✨ push_swap compiled!$(DEF_COLOR)"
 
 # Compile object files from source files
 $(OBJ_DIR)%.o:		$(SRC_DIR)%.c 

@@ -6,12 +6,24 @@
 /*   By: dvan-den <dvan-den@student.s19.be >        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 14:36:26 by dvan-den          #+#    #+#             */
-/*   Updated: 2024/04/04 15:12:49 by dvan-den         ###   ########.fr       */
+/*   Updated: 2024/04/10 15:49:51 by dvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
+/**
+ * @brief Counts the number of words in a string delimited by a
+ * specified character.
+ * 
+ * This function counts the number of words in the string 's'
+ * delimited by the character 'c'.
+ * 
+ * @param s The string to be split into words.
+ * @param c The delimiter character.
+ * 
+ * @return The number of words found in the string.
+ */
 static int	count_words(char *s, char c)
 {
 	int		count;
@@ -36,6 +48,19 @@ static int	count_words(char *s, char c)
 	return (count);
 }
 
+/**
+ * @brief Retrieves the next word from a string delimited by a specified
+ * character.
+ * 
+ * This function retrieves the next word from the string 's' starting at
+ * the current cursor position, delimited by the character 'c'.
+ * 
+ * @param s The string to extract the word from.
+ * @param c The delimiter character.
+ * 
+ * @return A dynamically allocated string containing the next word, or
+ * NULL if memory allocation fails.
+ */
 static char	*get_next_word(char *s, char c)
 {
 	static int	cursor = 0;
@@ -58,6 +83,19 @@ static char	*get_next_word(char *s, char c)
 	return (next_word);
 }
 
+/**
+ * @brief Splits a string into an array of words delimited by a specified
+ * character.
+ * 
+ * This function splits the string 's' into an array of words delimited by
+ * the character 'c'.
+ * 
+ * @param s The string to be split.
+ * @param c The delimiter character.
+ * 
+ * @return An array of strings, where each element is a word from the
+ * original string, or NULL if memory allocation fails.
+ */
 char	**split(char *s, char c)
 {
 	int		words_count;

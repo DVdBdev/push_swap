@@ -6,12 +6,21 @@
 /*   By: dvan-den <dvan-den@student.s19.be >        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 14:57:46 by dvan-den          #+#    #+#             */
-/*   Updated: 2024/04/04 15:12:24 by dvan-den         ###   ########.fr       */
+/*   Updated: 2024/04/10 16:01:22 by dvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
+/**
+ * @brief Assigns index values and determines if nodes are above the median
+ * for stack 'a'.
+ * 
+ * This function assigns index values to nodes in stack 'a' and determines
+ * if each node is above the median index.
+ * 
+ * @param stack A pointer to the head of stack 'a'.
+ */
 void	current_index(t_stack_node *stack)
 {
 	int	i;
@@ -33,6 +42,15 @@ void	current_index(t_stack_node *stack)
 	}
 }
 
+/**
+ * @brief Sets target nodes for each node in stack 'a' based on stack 'b'.
+ * 
+ * This function sets target nodes for each node in stack 'a' based on the
+ * values in stack 'b'.
+ * 
+ * @param a A pointer to the head of stack 'a'.
+ * @param b A pointer to the head of stack 'b'.
+ */
 static void	set_target_a(t_stack_node *a, t_stack_node *b)
 {
 	t_stack_node	*current_b;
@@ -61,6 +79,17 @@ static void	set_target_a(t_stack_node *a, t_stack_node *b)
 	}
 }
 
+/**
+ * @brief Analyzes the cost of pushing each node from stack 'a' to stack
+ * 'b'.
+ * 
+ * This function analyzes the cost of pushing each node from stack 'a' to
+ * stack 'b' based on their index, whether they are above the median, and
+ * the index of their target node in stack 'b'.
+ * 
+ * @param a A pointer to the head of stack 'a'.
+ * @param b A pointer to the head of stack 'b'.
+ */
 static void	cost_analysis_a(t_stack_node *a, t_stack_node *b)
 {
 	int	len_a;
@@ -81,6 +110,14 @@ static void	cost_analysis_a(t_stack_node *a, t_stack_node *b)
 	}
 }
 
+/**
+ * @brief Sets the cheapest node in stack 'a'.
+ * 
+ * This function identifies the node with the lowest push cost in stack 'a'
+ * and marks it as the cheapest.
+ * 
+ * @param stack A pointer to the head of stack 'a'.
+ */
 void	set_cheapest(t_stack_node *stack)
 {
 	long			cheapest_value;
@@ -101,6 +138,15 @@ void	set_cheapest(t_stack_node *stack)
 	cheapest_node->cheapest = true;
 }
 
+/**
+ * @brief Initializes various attributes of nodes in stack 'a'.
+ * 
+ * This function initializes the index, target nodes, push costs, and
+ * identifies the cheapest node for each node in stack 'a'.
+ * 
+ * @param a A pointer to the head of stack 'a'.
+ * @param b A pointer to the head of stack 'b'.
+ */
 void	init_nodes_a(t_stack_node *a, t_stack_node *b)
 {
 	current_index(a);

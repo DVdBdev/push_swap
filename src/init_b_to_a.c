@@ -6,12 +6,21 @@
 /*   By: dvan-den <dvan-den@student.s19.be >        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 14:59:23 by dvan-den          #+#    #+#             */
-/*   Updated: 2024/04/04 15:12:27 by dvan-den         ###   ########.fr       */
+/*   Updated: 2024/04/10 16:03:18 by dvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
+/**
+ * @brief Sets target nodes for each node in stack 'b' based on stack 'a'.
+ * 
+ * This function sets target nodes for each node in stack 'b' based on the
+ * values in stack 'a'.
+ * 
+ * @param a A pointer to the head of stack 'a'.
+ * @param b A pointer to the head of stack 'b'.
+ */
 static void	set_target_b(t_stack_node *a, t_stack_node *b)
 {
 	t_stack_node	*current_a;
@@ -40,6 +49,15 @@ static void	set_target_b(t_stack_node *a, t_stack_node *b)
 	}
 }
 
+/**
+ * @brief Initializes various attributes of nodes in stack 'b'.
+ * 
+ * This function initializes the index and target nodes for each node in
+ * stack 'b'.
+ * 
+ * @param a A pointer to the head of stack 'a'.
+ * @param b A pointer to the head of stack 'b'.
+ */
 void	init_nodes_b(t_stack_node *a, t_stack_node *b)
 {
 	current_index(a);

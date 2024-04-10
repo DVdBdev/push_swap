@@ -6,12 +6,21 @@
 /*   By: dvan-den <dvan-den@student.s19.be >        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 14:26:04 by dvan-den          #+#    #+#             */
-/*   Updated: 2024/04/10 15:27:25 by dvan-den         ###   ########.fr       */
+/*   Updated: 2024/04/10 16:13:26 by dvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
+/**
+ * @brief Sorts the stack 'a' using the push_swap algorithm.
+ * 
+ * This function sorts the stack 'a' in ascending order using the
+ * push_swap algorithm.
+ * 
+ * @param a A pointer to the pointer to the head of stack 'a'.
+ * @param b A pointer to the pointer to the head of stack 'b'.
+ */
 void	sort_stacks(t_stack_node **a, t_stack_node **b)
 {
 	int	len_a;
